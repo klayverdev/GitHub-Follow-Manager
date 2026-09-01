@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gh-follow-sync</title>
+  <meta name="description" content="Compare seus seguidores e quem você segue no GitHub, e resolva as diferenças direto pela API.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <main class="shell">
+
+    <header class="shell__bar">
+      <span class="shell__name">gh-follow-sync</span>
+      <span class="shell__cursor" aria-hidden="true"></span>
+    </header>
+
+    <p class="lede">
+      Compara seus seguidores com quem você segue e mostra exatamente onde estão as diferenças.
+    </p>
+
+    <section class="panel" aria-labelledby="connect-heading">
+      <p class="prompt" id="connect-heading">connect</p>
+
+      <div class="field">
+        <label for="token">token de acesso</label>
+        <input type="password" id="token" placeholder="ghp_••••••••••••••••••••" autocomplete="off">
+        <a class="field__hint" href="https://github.com/settings/tokens/new?scopes=user:follow,read:user&description=gh-follow-sync" target="_blank" rel="noopener">
+          gerar token com os escopos certos
+        </a>
+      </div>
+
+      <div class="field">
+        <label for="username">usuário</label>
+        <input type="text" id="username" placeholder="octocat" autocomplete="off">
+      </div>
+
+      <div class="panel__actions">
+        <button id="scan-btn" class="btn btn--primary" type="button">escanear</button>
+        <label class="check">
+          <input type="checkbox" id="remember-token">
+          lembrar token neste navegador
+        </label>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="stats" id="stats" hidden aria-label="Resumo">
+      <div class="stat">
+        <span class="stat__value" id="stat-followers">0</span>
+        <span class="stat__label">seguidores</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" id="stat-following">0</span>
+        <span class="stat__label">seguindo</span>
+      </div>
+      <div class="stat stat--gap">
+        <span class="stat__value" id="stat-not-back">0</span>
+        <span class="stat__label">não te seguem de volta</span>
+      </div>
+      <div class="stat stat--gap">
+        <span class="stat__value" id="stat-not-following">0</span>
+        <span class="stat__label">você não segue de volta</span>
+      </div>
+    </section>
+
+    <section class="results" id="results" hidden aria-label="Resultados">
+      <p class="prompt">diff</p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" role="tab" aria-selected="true" data-tab="not-back" type="button">não seguem de volta</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="not-following" type="button">você não segue</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="followers" type="button">seguidores</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="following" type="button">seguindo</button>
+      </div>
+
+      <ul class="list" id="list"></ul>
+    </section>
+
+  </main>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
