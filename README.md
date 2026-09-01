@@ -1,6 +1,6 @@
 # gh-follow-sync
 
-Ferramenta simples, 100% front-end, para comparar quem te segue no GitHub com quem você segue — e resolver a diferença direto pela API, sem instalar nada.
+Ferramenta simples, 100% front-end, para comparar quem te segue no GitHub com quem você segue e resolver a diferença direto pela API, sem instalar nada.
 
 ![preview do gh-follow-sync](./assets/screenshot.png)
 
