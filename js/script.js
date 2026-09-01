@@ -184,8 +184,8 @@ function usersYouDontFollowBack() {
 function renderStats() {
   el.statFollowers.textContent = followers.length;
   el.statFollowing.textContent = following.length;
-  el.statNotBack.textContent = usersYouDontFollowBack().length;
-  el.statNotFollowing.textContent = usersNotFollowingBack().length;
+  el.statNotBack.textContent = usersNotFollowingBack().length;
+  el.statNotFollowing.textContent = usersYouDontFollowBack().length;
 }
 
 /* -------------------------------------------------------
